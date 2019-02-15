@@ -18,7 +18,7 @@ namespace Task1
             get;// свойство для получения 
             set;// свойство для присвоения
         }
-        public FileInfo[] FileContent // член класса в виде массива типа FileInfo для файлов
+        public FileInfo[] FileContent // член классас в виде массива типа FileInfo для файлов
         {
             get;//свойство для получения
             set;//свойство для присвоения
@@ -44,10 +44,10 @@ namespace Task1
                 SelectedColor(i);//вызывает метод для измения цвета выбранной папки
                 Console.WriteLine((i + 1) + ". " + DirectoryContent[i].Name);//пишет имена папок нумерация
             }
-            Console.ForegroundColor = ConsoleColor.Yellow;//меняет цвет текста консли на желтый
-            for (int i = 0; i < FileContent.Length; ++i)//проходит по всем файлам в данной директории
+            Console.ForegroundColor = ConsoleColor.Yellow;//меняет цвет текста консои на желтый
+            for (int i = 0; i < FileContent.Length; ++i)//проходит по всех файлам в данной директории
             {
-                SelectedColor(i + DirectoryContent.Length);//вызывает метод для изменения цвета выбранного файла
+                SelectedColor(i + DirectoryContent.Length);//вызыввает метод для изменения цвета выбранного файла
                 Console.WriteLine((i + DirectoryContent.Length + 1) + ". "
                     + FileContent[i].Name);// пишет все файлы с нумерации после папок
 
@@ -59,26 +59,26 @@ namespace Task1
     {
         static void Main(string[] args)
         {
-            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\aruzh\source\repos");
-            //создает объект класса  DirectoryInfo по указанному пути
+            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\Acer\source\repos");
+            //создает обЪект класса  DirectoryInfo по указанному пути
             Layer l = new Layer // создает объект класса layer
             {
                 DirectoryContent = dir.GetDirectories(),
                 //заполняет массив методом который возвращает массив с папками
                 FileContent = dir.GetFiles(),
                 //заполняет массив который возвращает массив с файлами
-                SelectedIndex = 0//присваивает выбраному индексу число 0
+                SelectedIndex = 0//приваевает выбраному индексу число 0
             };
-            l.Draw();//вызывает метод который выводит на консоли папки и файлы
+            l.Draw();//вызывает мтода который выводит на консоли папки и файлы
             Stack<Layer> history = new Stack<Layer>();//создает стек
-            history.Push(l);//добавляет в конец стека обЪект класса layer 
+            history.Push(l);//добвляет в конец стека обЪект класса layer 
             bool esc = false;//создает переменную bool и присваивает значение ложь
             FSIMode curMode = FSIMode.DirectoryInfo; //создает энум созначение каталогов 
             while (!esc)//цикл пока esc = ложь
             {
                 if (curMode == FSIMode.DirectoryInfo) //если энум директория
                     history.Peek().Draw();//то рисует все папки и файлы
-                ConsoleKeyInfo consolekeyInfo = Console.ReadKey(); //справочник
+                ConsoleKeyInfo consolekeyInfo = Console.ReadKey(); // spravo4nik
                 //запрашивает у пользователя нажатии клавиши
                 switch (consolekeyInfo.Key)//проверяет нажатые клавиши
                 {
@@ -86,7 +86,7 @@ namespace Task1
                         if (history.Peek().SelectedIndex > 0)//проверяет если выбранный файл или папка не в вверху
                             history.Peek().SelectedIndex--; //то поднимает выбранный индекс путем декримента
                         break;
-                    case ConsoleKey.DownArrow://если клавиша нажата вниз
+                    case ConsoleKey.DownArrow://если клавища нажата вниз
                         if (history.Peek().DirectoryContent.Length + history.Peek().FileContent.Length - 1 >
                             history.Peek().SelectedIndex)//проверяет если индекс выбранного файла или папки меньше общего количества папок и файлов
                             history.Peek().SelectedIndex++;//понижает выбор вниз путем инкремена выбранного индекса
@@ -95,7 +95,7 @@ namespace Task1
                         if (history.Peek().DirectoryContent.Length + history.Peek().
                             FileContent.Length == 0)//если файлов и папок нету то выходит
                             break;
-                        int index = history.Peek().SelectedIndex;//если нет, то с верхнего элемента стэка вытаскивает переменную выбранного индекса
+                        int index = history.Peek().SelectedIndex;//если нет, то с верхнего элеиента стэка вытаскивает переменную выбранного индекса
                         if (index < history.Peek().DirectoryContent.Length) //если выбранный индекс на папке
                         {
                             DirectoryInfo d = history.Peek().DirectoryContent[index];//получает инфо о выбранном каталоге 
