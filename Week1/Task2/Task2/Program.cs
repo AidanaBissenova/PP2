@@ -8,32 +8,32 @@ namespace Task2
 {
     class Student
     {
-        public string name;
-        public string id;
-        public int year;
+        public string name;//переменная name
+        public string id;//переменная id
+        public int year;//переменная year
 
-        public Student(string name, string id)
+        public Student(string name, string id) //конструктор с 2 параметрами
         {
-            this.name = name;
+            this.name = name;//чтобы между двум переменами не было конфликта
             this.id = id;
         }
-        public Student()
+        public Student()//конструктор с 0 параметрами
         {
-            name = Console.ReadLine();
-            id = Console.ReadLine();
-            year = Convert.ToInt32(Console.ReadLine());
+            name = Console.ReadLine();//вводим name
+            id = Console.ReadLine();//вводим id
+            year = Convert.ToInt32(Console.ReadLine());//вводим year
         }
 
-        public void PrintInfo()
+        public void PrintInfo()//метод возвращает данные студента
         {
-            Console.WriteLine(name);
+            Console.WriteLine(name);//выводим
             Console.WriteLine(id);
             Console.WriteLine(year);
         }
         public void IncrementOfYear()
         {
-            year++;
-            PrintInfo();
+            year++;//увеличиваем year на 1
+            PrintInfo();//запрашиваем метод PrintInfo
         }
 
     }
@@ -41,8 +41,8 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            Student s = new Student();
-            s.IncrementOfYear();
+            Student s = new Student(); //Иницифлизируем данные с помощью конструктора:0
+            s.IncrementOfYear();//метод возвращает данные
         }
     }
 }
