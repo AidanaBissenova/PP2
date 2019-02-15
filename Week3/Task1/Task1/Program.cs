@@ -59,7 +59,7 @@ namespace Task1
     {
         static void Main(string[] args)
         {
-            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\aruzh\source\repos");
+            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\Acer\source\repos");
            
             Layer l = new Layer 
             {
