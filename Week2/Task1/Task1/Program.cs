@@ -20,6 +20,7 @@ namespace Task1
                     return;//завершаем выполнение метода
                 }
             }
+            { }
             Console.WriteLine("Yes");// если же те буквы равны тогда выводим yes
         }
     }
